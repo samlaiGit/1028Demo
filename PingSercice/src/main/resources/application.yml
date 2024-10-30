@@ -1,0 +1,21 @@
+server:
+  port: ${server.port:8080} # 8080, 8082, ????? PingService ?????????
+spring:
+  main:
+    web-application-type: reactive
+  application:
+   name: PingSercice
+logging:
+  level:
+    root: INFO
+  file:
+    name: logs/ping_service.log  # ??????
+    path: logs  # ??????
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%traceId] %-5level %logger{36} - %msg%n"  # ????
+
+# 配置总机器数量
+totalMachines: 3
+
+# 每台机器的唯一 ID (在每台机器上可以配置不同的 ID)
+machineId: ${server.machineId:1}
